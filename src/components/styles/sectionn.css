@@ -1,0 +1,121 @@
+.section-top {
+  position: relative;
+  max-height: 600px;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  overflow: hidden;
+}
+
+.section-top-content {
+  text-align: center;
+  width: 100%;
+  padding: 40px 20px;
+  z-index: 10;
+  position: relative;
+}
+
+.section-top-title {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.section-top-breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+.section-top-breadcrumb li {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.section-top-breadcrumb li a,
+.section-top-breadcrumb li span {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.section-top-breadcrumb li a:hover {
+  color: #2bc8eb;
+}
+
+.section-top-breadcrumb li:not(:last-child)::after {
+  content: '/';
+  margin-left: 20px;
+  color: #666666;
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+  .section-top {
+    max-height: 450px;
+    min-height: 300px;
+  }
+
+  .section-top-content {
+    padding: 30px 15px;
+  }
+
+  .section-top-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  .section-top-breadcrumb {
+    gap: 15px;
+  }
+
+  .section-top-breadcrumb li {
+    font-size: 0.95rem;
+  }
+
+  .section-top-breadcrumb li:not(:last-child)::after {
+    margin-left: 15px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .section-top {
+    max-height: 350px;
+    min-height: 250px;
+  }
+
+  .section-top-content {
+    padding: 20px 10px;
+  }
+
+  .section-top-title {
+    font-size: 1.75rem;
+    margin-bottom: 15px;
+  }
+
+  .section-top-breadcrumb {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section-top-breadcrumb li {
+    font-size: 0.9rem;
+  }
+
+  .section-top-breadcrumb li:not(:last-child)::after {
+    content: '';
+    margin: 0;
+  }
+}

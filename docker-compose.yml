@@ -1,0 +1,41 @@
+services:
+  payload:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clouditwebsite
+    volumes:
+      - ./media:/app/media
+    ports:
+      - "3334:3000"
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      - PAYLOAD_SECRET=secret
+      - DATABASE_URL=postgresql://cloudit:1234@db/cloudit
+      - NEXT_PUBLIC_SERVER_URL=https://cloudit.codenik.in
+      - NEXT_PUBLIC_ORG_NAME=Cloudit
+    networks:
+      - default-net
+
+  db:
+    image: docker.io/library/postgres:latest
+    environment:
+      - POSTGRES_USER=cloudit
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=cloudit
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - default-net
+volumes:
+  postgres-data:
+  postgres-new:
+
+
+networks:
+  default-net:
+    driver: bridge
